@@ -44,6 +44,12 @@ jobs:
         # Inputs for action
         with:
           go-version: "1.25.1"
-          
+
       - name: Check Style
         run: test -z $(go fmt ./...)
+      
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+      
+      - name: Lint Rules
+        run: staticcheck ./...
