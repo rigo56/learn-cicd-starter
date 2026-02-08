@@ -26,6 +26,6 @@ jobs:
         with:
           node-version: "1.25.1"
       
-      - name: Force Failure
+      - name: Go Version
         # run specifies that command will run
-        run: (exit 1)
+        run: go version
