@@ -26,6 +26,6 @@ jobs:
         with:
           node-version: "1.25.1"
       
-      - name: Go Version
+      - name: Run UTs
         # run specifies that command will run
-        run: go version
+        run: go test ./...
