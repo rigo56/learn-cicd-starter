@@ -1,0 +1,31 @@
+# Workflow name
+name: ci
+
+# Trigger Workflow
+on:
+  pull_request:
+    branches: [main]
+
+# Jobs to do after workflow is triggered
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest # Virtual machine where jobs will run in
+
+    # Steps to execute
+    steps:
+        # Name of step
+      - name: Check out code
+        # Action of step. Actions are reusable custom apps to help reduce complexity.
+        # They are like pre-built methods
+        uses: actions/checkout@v4
+      
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        # Inputs for action
+        with:
+          go-version: "1.25.1"
+      
+      - name: Run UTs
+        # run specifies that command will run
+        run: go test ./... -cover
