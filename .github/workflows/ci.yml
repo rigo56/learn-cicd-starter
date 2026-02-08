@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-go@v5
         # Inputs for action
         with:
-          node-version: "1.25.1"
+          go-version: "1.25.1"
       
       - name: Run UTs
         # run specifies that command will run
