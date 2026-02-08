@@ -28,4 +28,4 @@ jobs:
       
       - name: Force Failure
         # run specifies that command will run
-        run: (exit)
+        run: (exit 1)
