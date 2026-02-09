@@ -15,6 +15,7 @@ import (
 	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
+	"time"
 )
 
 type apiConfig struct {
@@ -89,8 +90,9 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+		Addr:              ":" + port,
+		Handler:           router,
+		ReadHeaderTimeout: 5 * time.Second,
 	}
 
 	log.Printf("Serving on port: %s\n", port)
